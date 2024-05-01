@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
 import { Header } from './header.tsx';
-import { Lists } from "./components/lists.tsx";
+import { Lists } from './components/lists.tsx';
+import { Article } from './pages/articlePage.tsx';
 import { Routes, Route } from 'react-router-dom';
 
 
@@ -11,7 +12,7 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={<Lists />} />
-        {/* <Route path='/article/:id' element={<Article />} /> */}
+        <Route path='/article/:id' element={<Article />} />
       </Routes>
     </>
   );
