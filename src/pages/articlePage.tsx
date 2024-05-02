@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Post } from '../interface.tsx';
 
-export const Article = () => {
-  const [post, setPosts] = useState();
+export const Article: React.FC<{ id: number, title: string, thumbnail: string, createdAt: string, categories: string, content: string }> = () => {
+  const [post, setPosts] = useState<Post | null>(null);
   const { id } = useParams<{ id: string }>();
   const [isLoading, setIsLoading] = useState(false);
 

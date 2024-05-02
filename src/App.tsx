@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
-import { Header } from './header.tsx';
-import { Lists } from './components/lists.tsx';
-import { Article } from './pages/articlePage.tsx';
+import { Header } from './Header.tsx';
+import { Lists } from './components/Lists.tsx';
+import { Article } from './pages/ArticlePage.tsx';
 import { Routes, Route } from 'react-router-dom';
-import { Contact } from './pages/contactPage.tsx';
+import { Contact } from './pages/ContactPage.tsx';
 
 
 function App() {
@@ -13,8 +13,11 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={<Lists />} />
-        <Route path='/article/:id' element={<Article />} />
-        <Route path='/contact' element={<Contact />} />
+        <Route path='/article/:id' element={<Article id={0} title="" thumbnail=""
+          createdAt=""
+          categories=""
+          content="" />} />
+        <Route path='/contact' element={<Contact name="" email="" message="" />} />
       </Routes>
     </>
   );
