@@ -1,23 +1,21 @@
+import React from "react";
 import { useState } from "react";
+import { formData } from '../interface.tsx';
+import { ErrorMessages } from '../interface.tsx'
 
-interface formData {
-  name: string;
-  email: string;
-  message: string;
-}
-export const Contact = () => {
+export const Contact: React.FC<{ name: string, email: string, message: string }> = () => {
   const [formData, setFormData] = useState<formData>({
     name: "",
     email: "",
     message: ""
   });
 
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<ErrorMessages | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // バリデーションルール
   const validate = () => {
-    let tempErrors = {};
+    let tempErrors: ErrorMessages = {};
 
     if (!formData.name) {
       tempErrors.name = "お名前は必須です。";
@@ -111,7 +109,7 @@ export const Contact = () => {
             />
           </div>
           <div className="error-container">
-            {errors.name && <div className="error-message">{errors.name}</div>}
+            {errors?.name && <div className="error-message">{errors.name}</div>}
           </div>
         </div>
         <div className="mb-6">
@@ -127,7 +125,7 @@ export const Contact = () => {
             />
           </div>
           <div className="error-container">
-            {errors.email && (
+            {errors?.email && (
               <div className="error-message">{errors.email}</div>
             )}
           </div>
@@ -145,7 +143,7 @@ export const Contact = () => {
             />
           </div>
           <div className="error-container">
-            {errors.message && (
+            {errors?.message && (
               <div className="error-message">{errors.message}</div>
             )}
           </div>

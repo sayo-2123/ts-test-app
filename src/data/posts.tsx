@@ -1,13 +1,5 @@
 // /src/data/posts.js
-interface Post {
-  id: number;
-  title: string;
-  thumbnailUrl: string;
-  createdAt: string;
-  categories: string[];
-  content: string;
-}
-
+import { Post } from '../interface.tsx';
 
 export const posts: Post[] = [
   {

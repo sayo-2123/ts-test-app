@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Post } from "../interface";
 
 export const Lists = () => {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState<Post[] | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -27,7 +28,7 @@ export const Lists = () => {
 
   return (
     <div className="posts">
-      {posts.map((post) => (
+      {posts ? posts.map((post) => (
         <div key={post.id} className="postIds">
           <Link
             to={`/article/${post.id}`}
@@ -49,7 +50,7 @@ export const Lists = () => {
             <div className="postContent">{post.content}</div>
           </Link>
         </div>
-      ))}
+      )) : <div>投稿が見つかりません</div>}
     </div>
   );
 };
